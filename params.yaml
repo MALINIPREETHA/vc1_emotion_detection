@@ -1,10 +1,10 @@
 dataingestion:
-  test_size: 0.3
+  test_size: 0.4
 
 features:
-  max_features: 150
+  max_features: 1100
 
 modelling:
-  n_estimators: 80
+  n_estimators: 110
   max_depth: 10
 

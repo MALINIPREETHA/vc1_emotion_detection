@@ -6,6 +6,8 @@ stages:
     outs:
     - data\raw\test.csv
     - data\raw\train.csv
+    params:
+    - dataingestion.test_size
   data_preprocessing:
     cmd: python src/data/data_preprocessing.py
     deps:
@@ -24,6 +26,8 @@ stages:
     outs:
     - data/interim/test_bow.csv
     - data/interim/train_bow.csv
+    params:
+    - features.max_features
   model_training:
     cmd: python src/models/modelling.py
     deps:
@@ -31,6 +35,9 @@ stages:
     - src/models/modelling.py
     outs:
     - models/random_forest_model.pkl
+    params:
+    - modelling.n_estimators
+    - modelling.max_depth
   model_evaluation:
     cmd: python src/models/model_evaluation.py
     deps:
